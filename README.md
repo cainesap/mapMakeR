@@ -20,12 +20,16 @@ _Disclaimer_: many of the issues mentioned below may be resolved in due course, 
 
 
 #### Procedure
-  - **starting point**: familiarity with [R](http://cran.r-project.org/), [ggplot2](http://ggplot2.org/) and [ggmap](https://sites.google.com/site/davidkahle/ggmap);
-  - install the following **packages** if need be: `install.packages(c('ggplot2', 'ggmap', 'maptools', 'maps'))`;
+* **starting point**: familiarity with [R](http://cran.r-project.org/), [ggplot2](http://ggplot2.org/) and [ggmap](https://sites.google.com/site/davidkahle/ggmap);
+* install the following **packages** if need be: `install.packages(c('ggplot2', 'ggmap', 'maptools', 'maps'))`;
   - _n.b._ 'rgeos' and 'rgdal' are also needed for handling spatial data but at time of writing were not available in CRAN for R 3.1.1 (Mavericks); therefore, as resolved by Brian Ripley and announced in [this message](https://stat.ethz.ch/pipermail/r-sig-mac/2014-May/010874.html) to the R-SIG-Mac mailing list, do the following: `setRepositories(ind = c(1,6)); install.packages(c('rgeos', 'rgdal'))`;
-  - **map of the world**: ggmap's (`geocode()` ->) `get_map()` -> `ggmap()` functionality is awesome:
+* **map of the world**: ggmap's (`geocode()` ->) `get_map()` -> `ggmap()` functionality is awesome:
   - _e.g.1_ Continent: `europe <- get_map(location = 'europe', zoom = 3, maptype = 'terrain', source = 'google', color = 'bw'); ggmap(europe, extent = 'device')`
   - _e.g.2_ City: `cambridge <- get_map(location = 'cambridge, u.k.', zoom = 12, maptype = 'roadmap', source = 'google', color = 'color'); ggmap(cambridge, extent = 'device')`
   - _e.g.3_ Building: `europe <- get_map(location = 'europe', zoom = 3, maptype = 'terrain', source = 'google', color = 'bw'); ggmap(europe, extent = 'device')`
   - _e.g.4_ Coordinates: `europe <- get_map(location = 'europe', zoom = 3, maptype = 'terrain', source = 'google', color = 'bw'); ggmap(europe, extent = 'device')`
   - **but**: you cannot obtain a world map from the Google Maps API via ggmap (lowest zoom number is 3, continent-level, after all) and at time of writing the other sources were each out of action for various reasons ('stamen' has been disrupted by some png->jpeg changes and will be fixed in ggmap 2.4, as explained [here](http://stackoverflow.com/questions/23488022/ggmap-stamen-watercolor-png-error) along with a fix that did not work for me; [open street map](http://openstreetmapdata.com/) returned a 503 to `get_map()` in R; whilst 'cloudmade maps' returned a 404 to [the URL given in the ggmap manual](http://maps.cloudmade.com) as it may have moved to subscription only by the look of [this page](http://cloudmade.com/solutions/portals) (?));
+  - in addition, ggmap doesn't handle extreme latitudes well, according to [this R-bloggers post by Ram](http://www.r-bloggers.com/r-beginners-plotting-locations-on-to-a-world-map/), which references a [StackOverflow response](http://stackoverflow.com/questions/11201997/world-map-with-ggmap/13222504#13222504) by @cbeleites explaining how to plot a world map in ggmap;
+  - as the SO post says the solution involves prior download of a world map in PNG format, though [the given link to BigMap](http://openstreetmap.gryph.de/bigmap.html) is dead (fair enough: the response dates back to Nov 2012);
+  - but now we know the method needed: first thing is to locate/generate a PNG world map, and my chosen method is to make the image from a shapefile, as described below...
+* [R-bloggers post by Kristoffer Magnusson](http://www.r-bloggers.com/working-with-shapefiles-projections-and-world-maps-in-ggplot/)
