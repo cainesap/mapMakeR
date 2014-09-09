@@ -33,3 +33,4 @@ _Disclaimer_: many of the issues mentioned below may be resolved in due course, 
   - as the SO post says the solution involves prior download of a world map in PNG format, though [the given link to BigMap](http://openstreetmap.gryph.de/bigmap.html) is dead (fair enough: the response dates back to Nov 2012);
   - but now we know the method needed: first thing is to locate/generate a PNG world map, and my chosen method is to make the image from a shapefile, as described below...
 * [R-bloggers post by Kristoffer Magnusson](http://www.r-bloggers.com/working-with-shapefiles-projections-and-world-maps-in-ggplot/)
+* [XKCD](http://xkcd.com/977/)
