@@ -59,7 +59,7 @@ theme_opts <- theme(
 # layer 1: bounding box (edge of the world!), plotted as a polygon, filled light blue, plus axis titles and tick-marks/labels
 world1 <- ggplot(bbox_wintri_df, aes(long, lat, group = group)) + geom_polygon(fill = "#BEEBF7") + scale_x_continuous('longitude', breaks = c(-16396891, 0, 16396891), labels = c('-180º', '0º', '180º')) + scale_y_continuous('latitude', breaks = c(-10018754, 0, 10018754), labels = c('-90º', '0º', '90º'))
 # layer 2: country shapes, border info for 177 unique IDs (countries), with lakes filled in thanks to logical T/F variable 'hole' (e.g. Caspian Sea), plotted as polygons allowing for land/lake fill colours defined by scale_fill_manual() 'values' [land first, lake second], note also omission of legend using 'guide' parameter
-world2 <- world1 + geom_polygon(data = countries_wintri_df, aes(long, lat, group = group, fill = hole)) + scale_fill_manual(values = c("#D5DE9E", "#BEEBF7"), guide = "none")
+world2 <- world1 + geom_polygon(data = countries_wintri_df, aes(long, lat, group = group, fill = hole)) + scale_fill_manual(values = c("#E4EBBC", "#BEEBF7"), guide = "none")
 # layer 3: country borders, drawn as paths
 world3 <- world2 + geom_path(data = countries_wintri_df, aes(long, lat, group = group), color = "#FFFFFF", size = 0.1)
 # layer 4: add graticules and geographic lines (except Intl Date Line)
@@ -68,7 +68,7 @@ world4 <- world3 + geom_path(data = grat_wintri_df, aes(long, lat, group = group
 world5 <- world4 + coord_equal(ratio = 1) + theme_opts
 
 ## and the above as single line command:
-world <- ggplot(bbox_wintri_df, aes(long, lat, group = group)) + geom_polygon(fill = "#BEEBF7") + scale_x_continuous('longitude', breaks = c(-16396891, 0, 16396891), labels = c('-180º', '0º', '180º')) + scale_y_continuous('latitude', breaks = c(-10018754, 0, 10018754), labels = c('-90º', '0º', '90º')) + geom_polygon(data = countries_wintri_df, aes(long, lat, group = group, fill = hole)) + scale_fill_manual(values = c("#D5DE9E", "#BEEBF7"), guide = "none") + geom_path(data = countries_wintri_df, aes(long, lat, group = group), color = "#FFFFFF", size = 0.1) + geom_path(data = grat_wintri_df, aes(long, lat, group = group, fill = NULL), linetype = 1, colour = "#C4C4BE", size = 0.1) + geom_path(data = lines_wintri_nonidl, aes(long, lat, group = group, fill = NULL), linetype = 2, colour = "#FFFFFF", size = 0.25) + coord_equal(ratio = 1) + theme_opts
+world <- ggplot(bbox_wintri_df, aes(long, lat, group = group)) + geom_polygon(fill = "#BEEBF7") + scale_x_continuous('longitude', breaks = c(-16396891, 0, 16396891), labels = c('-180º', '0º', '180º')) + scale_y_continuous('latitude', breaks = c(-10018754, 0, 10018754), labels = c('-90º', '0º', '90º')) + geom_polygon(data = countries_wintri_df, aes(long, lat, group = group, fill = hole)) + scale_fill_manual(values = c("#E4EBBC", "#BEEBF7"), guide = "none") + geom_path(data = countries_wintri_df, aes(long, lat, group = group), color = "#FFFFFF", size = 0.1) + geom_path(data = grat_wintri_df, aes(long, lat, group = group, fill = NULL), linetype = 1, colour = "#C4C4BE", size = 0.1) + geom_path(data = lines_wintri_nonidl, aes(long, lat, group = group, fill = NULL), linetype = 2, colour = "#FFFFFF", size = 0.25) + coord_equal(ratio = 1) + theme_opts
 
 
 ## save to file
