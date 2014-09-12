@@ -8,7 +8,7 @@ bul	bulgarian
 cat	catalan
 cau	caucasian
 ces	czech
-cor     cornish
+cor     corsican
 cym	welsh
 dan	danish
 deu	german
@@ -49,7 +49,7 @@ por	portuguese
 roh	romansh
 ron	romanian
 rus	russian
-sar	?
+sar	sardinian
 sco	scots
 sic	SCN:sicilian?
 slk	slovak
