@@ -44,7 +44,7 @@ antarc <- subset(countries_wintri_df, id == ID)
 newworld <- world + geom_polygon(data = antarc, aes(long, lat, group = group), fill = "#F0FFFF") + geom_path(data = grat_wintri_df, aes(long, lat, group = group, fill = NULL), linetype = 1, colour = "#C4C4BE", size = 0.1) + geom_path(data = lines_wintri_nonidl, aes(long, lat, group = group, fill = NULL), linetype = 2, colour = "#FFFFFF", size = 0.25)
 
 ## n.b. will use this 'newworld' object as the basemap from now on, also saving it as PNG
-png(filename = '../output/worldmap_antarctica.png', width = 1200, height = 900)
+png(filename = 'output/worldmap_antarctica.png', width = 1200, height = 900)
 newworld
 dev.off()
 
@@ -131,7 +131,7 @@ for (query in querydf$country) {
 #nwFillSome
 
 ## n.b. it would be handy to add a legend here, but if i try, using scale_fill_discrete() or scale_fill_manual(), it interferes with the discrete scale from the basemap, re-fills the 'hole'=T/F value with colpal colours, and adds a legend with true/false values accordingly; this is where it would be handy to load the basemap as a PNG, and separate the scales, but my attempt at following the method described here fails: http://stackoverflow.com/questions/11201997/world-map-with-ggmap/13222504#13222504
-# library(png); basemap <- readPNG('../output/worldmap_antarctica.png'); basemap <- as.raster(apply(basemap, 2, rgb)); class(basemap) <- c('ggmap', 'raster'); ggmap(basemap)
+# library(png); basemap <- readPNG('output/worldmap_antarctica.png'); basemap <- as.raster(apply(basemap, 2, rgb)); class(basemap) <- c('ggmap', 'raster'); ggmap(basemap)
 # error message: "Error in data.frame(x = x.major, y = y.range[1]) : 
 #  arguments imply differing number of rows: 0, 1"
 
@@ -170,7 +170,7 @@ nwFillAll <- nwFillAll + geom_path(data = countries_wintri_df, aes(long, lat, gr
 #nwFillAll
 
 ## and save
-png(filename = '../output/worldmap_tiled.png', width = 1200, height = 900)
+png(filename = 'output/worldmap_tiled.png', width = 1200, height = 900)
 nwFillAll
 dev.off()
 

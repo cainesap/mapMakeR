@@ -79,6 +79,6 @@ world <- ggplot(bbox_wintri_df, aes(long, lat, group = group)) + geom_polygon(fi
 
 
 ## save to file
-png(filename = '../output/worldmap_base.png', width = 1200, height = 900)
+png(filename = 'output/worldmap_base.png', width = 1200, height = 900)
 world
 dev.off()
