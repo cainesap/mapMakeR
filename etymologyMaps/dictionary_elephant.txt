@@ -3,6 +3,7 @@ ara	الفيل(el'feel)	green
 aze	?	green
 bel	слон	peach
 bos	slon	peach
+bre ?   green
 bul	слон	peach
 cat	elefant	green
 cau	?	grey
@@ -47,7 +48,7 @@ pol	słoń	peach
 por	elefante	green
 roh	elefant	green
 ron	elefant	green
-rus	слон	peach
+rus	слон(slon)	peach
 sar	?	green
 sco	?	green
 sic	liotru	green

@@ -3166,7 +3166,7 @@
      sodipodi:role="line"
      id="tspan4132"
      x="1082.2386"
-     y="388.7244">слон</tspan></text>
+     y="388.7244">слон(slon)</tspan></text>
 
 
 
@@ -4751,7 +4751,7 @@
 <path
    transform="matrix(1.015823,0,0,1.015823,-63.435109,-251.87468)"
    sodipodi:type="arc"
-   style="fill:#178df0;fill-opacity:1"
+   style="fill:#b2df8a;fill-opacity:1"
    id="path3507-11-9-3-1"
    sodipodi:cx="321.40701"
    sodipodi:cy="871.30414"
@@ -4760,7 +4760,7 @@
    d="m 325.24853,871.30414 a 3.8415182,3.8415182 0 1 1 -7.68304,0 3.8415182,3.8415182 0 1 1 7.68304,0 z" /><path
    transform="matrix(1.015823,0,0,1.015823,-49.638386,-249.57523)"
    sodipodi:type="arc"
-   style="fill:#178df0;fill-opacity:1"
+   style="fill:#b2df8a;fill-opacity:1"
    id="path3507-11-9-3-1-4"
    sodipodi:cx="321.40701"
    sodipodi:cy="871.30414"
@@ -4769,7 +4769,7 @@
    d="m 325.24853,871.30414 a 3.8415182,3.8415182 0 1 1 -7.68304,0 3.8415182,3.8415182 0 1 1 7.68304,0 z" /><path
    transform="matrix(1.015823,0,0,1.015823,-63.895,-239.91753)"
    sodipodi:type="arc"
-   style="fill:#178df0;fill-opacity:1"
+   style="fill:#b2df8a;fill-opacity:1"
    id="path3507-11-9-3-1-9"
    sodipodi:cx="321.40701"
    sodipodi:cy="871.30414"
@@ -4778,7 +4778,7 @@
    d="m 325.24853,871.30414 a 3.8415182,3.8415182 0 1 1 -7.68304,0 3.8415182,3.8415182 0 1 1 7.68304,0 z" /><path
    transform="matrix(1.015823,0,0,1.015823,-52.397731,-238.07796)"
    sodipodi:type="arc"
-   style="fill:#178df0;fill-opacity:1"
+   style="fill:#b2df8a;fill-opacity:1"
    id="path3507-11-9-3-1-96"
    sodipodi:cx="321.40701"
    sodipodi:cy="871.30414"
@@ -4794,7 +4794,7 @@
      sodipodi:role="line"
      id="tspan4176-0"
      x="239.40051"
-     y="643.02881">$bre</tspan></text>
+     y="643.02881"></tspan></text>
 <path
    transform="matrix(1.015823,0,0,1.015823,316.43468,55.792252)"
    sodipodi:type="arc"
