@@ -8,7 +8,7 @@ I needed to make a map with several requirements:
   - in R, using ggplot/ggmap if possible, due to familiarity;
   - map of the world with country boundaries;
   - ability to 'fill' in the countries with different colours according to given values;
-I was aware of the impressive mapmaking capabilities of [ggplot2](http://ggplot2.org/) (Hadley Wickham) and [ggmap](https://sites.google.com/site/davidkahle/ggmap) (David Kahle & Hadley Wickham), which are just what's needed if you wish to plot spatial data (points, lines, heatmaps, etc) - as in the examples featured and linked to in [this R-bloggers post by Ralph](http://www.r-bloggers.com/google-maps-and-ggmap/); Or, if you wish to differentially fill country regions according to a given variable or variables, in specific well-resourced areas (data-wise) using shape files - the census tracts of Atlanta, say, as in [this post on Kevin Johnson's blog](http://www.kevjohnson.org/making-maps-in-r-part-2/) (which layers shapefile data, [described in KJ's earlier post](http://www.kevjohnson.org/making-maps-in-r/), on top of a ggmap object). But in trying to scale this latter method [ggmap base layer + shape files] up to a map of the world I encountered several issues, including:  
+I was aware of the impressive mapmaking capabilities of [ggplot2](http://ggplot2.org/) (Hadley Wickham) and [ggmap](https://sites.google.com/site/davidkahle/ggmap) (David Kahle & Hadley Wickham), which are just what's needed if you wish to plot spatial data (points, lines, heatmaps, etc) - as in the examples featured and linked to in [this R-bloggers post by Ralph](http://www.r-bloggers.com/google-maps-and-ggmap/); Or, if you wish to differentially fill country regions according to a given variable or variables, in specific well-resourced areas (data-wise) using shape files - the census tracts of Atlanta, say, as in [this post on Kevin Johnson's blog](http://www.kevjohnson.org/making-maps-in-r-part-2/) (which layers shapefile data, [described in KJ's earlier post](http://www.kevjohnson.org/making-maps-in-r/), on top of a ggmap object). But in trying to scale this latter method [ggmap base layer + shape files] up to a map of the world I encountered several issues, including:
   - firstly, how to draw a basemap of the world via ggmap (i.e. layer 1 in the ggplot/'grammar of graphics' method) [more on this below];  
   - secondly, how to inform R of the boundaries for all countries and fill those boundaries in with colour (i.e. layer 2) [more on this below];  
   - I was unaware until starting this process that 'projection' is such an important issue in mapmaking: Google, for example, may not be using the most accurate representation of the world [more on this below].
@@ -16,7 +16,8 @@ I was aware of the impressive mapmaking capabilities of [ggplot2](http://ggplot2
 
 #### Hardware/software
 The following procedure was appropriate for Mac OS X 10.9.4 (Mavericks) and [R 3.1.1](http://cran.r-project.org/bin/macosx/) ('Sock it to Me') for Mavericks as of 2014-09-10.  
-_Disclaimer_: many of the issues mentioned below may be resolved in due course, in which case some or all of it may become obsolete/unnecessary/laughable; please adjust the procedure accordingly (and/or send me feedback - thanks!)
+_Disclaimer_: many of the issues mentioned below may be resolved in due course, in which case some or all of it may become obsolete/unnecessary/laughable; please adjust the procedure accordingly (and/or send me feedback - thanks!)  
+Similarly, I welcome feedback on improving my Rscripts.
 
 
 #### Procedure
@@ -32,13 +33,18 @@ _Disclaimer_: many of the issues mentioned below may be resolved in due course, 
   - in addition, ggmap doesn't handle extreme latitudes well, according to [an R-bloggers post by Ram](http://www.r-bloggers.com/r-beginners-plotting-locations-on-to-a-world-map/);
   - **however**, Ram does reference a [StackOverflow response](http://stackoverflow.com/questions/11201997/world-map-with-ggmap/13222504#13222504) by @cbeleites explaining how to plot a world map in ggmap;
   - as the SO post says the solution involves prior download of a world map in PNG format, though [the given link to BigMap](http://openstreetmap.gryph.de/bigmap.html) is dead (fair enough: the response dates back to Nov 2012);
-  - but now we know the method needed: first thing is to locate/generate a PNG world map, and my chosen method is to make the image from a shapefile, in ggplot as it happens .. so in fact there's no need to make a basic PNG in a separate step from any subsequent layering: the whole thing can be in one Rscript; however, I've retained a modular approach so that people can plug in a different world base map if they prefer; more detail below...
+  - but now we know the method needed: first thing is to locate/generate a PNG world map, and my chosen method is to make the image from a shapefile, in ggplot as it happens (so in fact I don't need to re-load the basemap as a PNG but can instead carry straight on with ggplot layering); however, I've retained a modular approach so that people can load a PNG image from a different source if they prefer; more detail below...
 * **Rscripts**: the scripts have been written in a modular fashion such that the various steps can be commented in or out of 'main.R'; the order is as follows:
   - 'prelims.R' loads required libraries and includes `install.packages()` commands (commented out) if needed;
-  - 'datainfo.R' simply prints some statements to stdout, giving the user a list of URLs from which to download the required worldmap data;
-  - 'basemap.R' walks through the necessary steps to build a basemap of the world and save it in PNG format;
-  - 'moremap.R'
+  - 'datainfo.R' simply prints some statements to stdout, giving the user a list of URLs from which to download the required worldmap shapefiles from Natural Earth;
+  - 'basemap.R' walks through the necessary steps to build a basemap of the world and save it in PNG format: [1] fetch and manipulate data, [2] build plot, [3] save to file;
+  - 'moremap.R' shows how to add extra layers to that basemap: [a] use `geom_polygon` to fill a named country (or list of countries) with a particular colour, [b] use this method to fill Antarctica (almost-)white, [c] matching by ISO country codes, [d] named countries plotted according to a given variable, using `geom_point` to make a 'bubble plot', [e] named countries filled according to a given variable, using a defined palette of colours to indicate value, [f] fill all countries according to the 'mapcolor' variables supplied in the Natural Earth shapefiles;
+  - the output of [f] is shown below.
+* the above work was hugely influenced by [Kristoffer Magnusson's R-bloggers post]((http://www.r-bloggers.com/working-with-shapefiles-projections-and-world-maps-in-ggplot/));
 * further detail and comments are included in each script: you'll find 'main.R' in this top-level directory and it's a good starting point; other scripts are in the 'rscripts' dir, with plots being saved to 'output'
 
-* [R-bloggers post by Kristoffer Magnusson](http://www.r-bloggers.com/working-with-shapefiles-projections-and-world-maps-in-ggplot/)
-* [XKCD](http://xkcd.com/977/)
+#### Projection
+A final comment on 'projection', which is the intriguing topic of how latitudes and longitudes of positions on the surface of a sphere/ellipsoid are transformed into locations on a plane. I had no idea this was such a contentious issue! (But of course it is, once you start looking at maps of the world more closely). For further info, see the [Wikipedia article](http://en.wikipedia.org/wiki/Map_projection).  
+Though take note of this [**xkcd** comic](http://xkcd.com/977/) ... and this scene from [_The West Wing_](https://www.youtube.com/watch?v=n8zBC2dvERM)
+
+![map of the world](output/worldmap_tile-all.png)
