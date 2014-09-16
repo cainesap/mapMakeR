@@ -2,7 +2,7 @@
 
 
 
-### 1. FETCH & MANIPULATE DATA
+### [1] FETCH & MANIPULATE DATA
 
 ## read shapefile of land polygons using rgdal's readOGR(); default projection is 'longlat'
 wmap <- readOGR(dsn = "ne_110m_land", layer = "ne_110m_land")
@@ -44,7 +44,7 @@ lines_wintri_nonidl <- subset(lines_wintri_df, id != "5")
 
 
 
-### 2. BUILD PLOT
+### [2] BUILD PLOT
 
 ## create your ggplot 'theme' (i.e. appearance settings; see http://docs.ggplot2.org/current/theme.html); KM chooses a very plain theme with grey background (see blogpost); I've retained the lat/long axes and changed the background colour, font, removed the title .. choose your flavour!
 theme_opts <- theme(
@@ -74,11 +74,13 @@ world4 <- world3 + geom_path(data = grat_wintri_df, aes(long, lat, group = group
 world5 <- world4 + coord_equal(ratio = 1) + theme_opts
 
 
-## and the above as single line command:
+## the above as a single line command
+
 world <- ggplot(bbox_wintri_df, aes(long, lat, group = group)) + geom_polygon(fill = "#BEEBF7") + scale_x_continuous('longitude', breaks = c(-16396891, 0, 16396891), labels = c('-180º', '0º', '180º')) + scale_y_continuous('latitude', breaks = c(-10018754, 0, 10018754), labels = c('-90º', '0º', '90º')) + geom_polygon(data = countries_wintri_df, aes(long, lat, group = group, fill = hole)) + scale_fill_manual(values = c("#E4EBBC", "#BEEBF7"), guide = "none") + geom_path(data = countries_wintri_df, aes(long, lat, group = group), color = "#FFFFFF", size = 0.1) + geom_path(data = grat_wintri_df, aes(long, lat, group = group, fill = NULL), linetype = 1, colour = "#C4C4BE", size = 0.1) + geom_path(data = lines_wintri_nonidl, aes(long, lat, group = group, fill = NULL), linetype = 2, colour = "#FFFFFF", size = 0.25) + coord_equal(ratio = 1) + theme_opts
 
 
-## save to file
+
+## [3] save to file
 png(filename = 'output/worldmap_base.png', width = 1200, height = 900)
 world
 dev.off()
