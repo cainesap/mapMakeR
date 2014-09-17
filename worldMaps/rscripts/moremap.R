@@ -112,9 +112,9 @@ dev.off()
 ## merge our country df with previously constructed country coordinates df
 countrymerged <- merge(countrysubs, querydf, by = "id")
 
-## add a new layer to newworld plot, with the fill dictated by count value
-newworld + geom_polygon(data = countrymerged, aes(long, lat, group = id), fill = count)
-## stuck here in getting colours to vary by value: error msg "incompatible lengths for set aesthetics: fill"
+## this is how i hoped it would work: add a new layer to newworld plot, with the fill dictated by count value
+# newworld + geom_polygon(data = countrymerged, aes(long, lat, group = id, fill = count))
+## but: error msg "Continuous value supplied to discrete scale"; due to interference with basemap discrete fill scale (hole=T/F)
 
 ## therefore a workaround, a lot more clumsy than the usual ggplot elegance: add a new polygon to the ggplot object foreach country in your list, add the colour from a pre-defined palette
 
@@ -182,4 +182,4 @@ dev.off()
 
 
 ### [g] in case the script is run from source()
-print("You should now have the following plot objects: newworld1, newworld2, newworld3, newworld", "bubble1", "bubble2", "nwFillSome", "nwFillAll")
+print("You should now have the following plot objects: 'newworld1', 'newworld2', 'newworld3', 'newworld', 'bubble1', 'bubble2', 'nwFillSome', 'nwFillAll'; try running them each in turn")

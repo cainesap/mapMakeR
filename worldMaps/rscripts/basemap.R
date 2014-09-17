@@ -84,3 +84,7 @@ world <- ggplot(bbox_wintri_df, aes(long, lat, group = group)) + geom_polygon(fi
 png(filename = 'output/worldmap_base.png', width = 1200, height = 900)
 world
 dev.off()
+
+
+### [4] in case the script is run from source()
+print("Now try running the 'world' plot object (which has been saved to file: 'output/worldmap_base.png')")
