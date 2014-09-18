@@ -1,7 +1,7 @@
-mapMakeR
+worldMaps
 ========
 
-mapmaking in R; building on work of others [with due credit given]
+Mapping the World in R; building on work of others [with due credit given]
 
 #### Background
 I needed to make a map with several requirements:
