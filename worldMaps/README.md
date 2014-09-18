@@ -15,7 +15,7 @@ I was aware of the impressive mapmaking capabilities of [ggplot2](http://ggplot2
   
 
 #### Hardware/software
-The following procedure was appropriate for Mac OS X 10.9.4 (Mavericks) and [R 3.1.1](http://cran.r-project.org/bin/macosx/) ('Sock it to Me') for Mavericks as of 2014-09-10.  
+The following procedure was appropriate for Mac OS X 10.9.4 (Mavericks) and [R 3.1.1](http://cran.r-project.org/bin/macosx/) ('Sock it to Me') for Mavericks as of 2014-09-17.  
 _Disclaimer_: many of the issues mentioned below may be resolved in due course, in which case some or all of it may become obsolete/unnecessary/laughable; please adjust the procedure accordingly (and/or send me feedback - thanks!)  
 Similarly, I welcome feedback on improving my Rscripts.
 
