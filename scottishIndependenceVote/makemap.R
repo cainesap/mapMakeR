@@ -24,7 +24,7 @@ osmap_df <- fortify(osmap_transf)
 
 
 ## election data from City A.M. website http://www.cityam.com/1411046935/who-won-where-how-scottish-councils-voted-independence-referendum-results-map; n.b. with some name replacements to match OS Council names [see README]
-results <- read.csv("scotIndyRefResults.csv")
+results <- read.csv("referendumResults.csv")
 
 ## match each council to shapefile data and build a 'scotland' data frame
 councils <- results$Council.area
@@ -43,7 +43,11 @@ for (council in councils){
 	results$long[rowno] <- longlat[1]
 	results$lat[rowno] <- longlat[2]
 }
+## new columns: total number of voters; labels 1:32 for plotting in approx N->S order
 results$Voters <- results$Yes + results$No
+#orderedlabs <- c(1, 2, 3, 4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32)
+orderedlabs <- c(7, 6, 8, 10, 13, 32, 12, 28, 17, 20, 23, 19, 3,  18, 14, 24, 4,  15, 27, 5,  21, 25, 2,  9,  22, 30, 1,  31, 29, 11, 16, 26)
+results$label <- orderedlabs
 print(results)
 
 
@@ -94,19 +98,35 @@ for (ID in results$id) {
 }
 
 ## final plot bits
-scotmap <- scotmap + geom_text(data = results, aes(x = long, y = lat, label = Council.area, group = NULL, family = "Georgia", size = 10)) + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + coord_equal(ratio = 1) + theme_opts
+scotmapfull <- scotmap + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
 
 ## render in console / save to file; WARNING: plotting takes a long time! [approx 10mins on my machine; iMac 2.7GHz, 8GB mem; probably a way to simplify the shapefiles, please get back to me if so]
-system.time(print(scotmap))
+system.time(print(scotmapfull))
 
-png(filename = 'scottishIndyRef2014.png', width = 1200, height = 900)
-scotmap
-dev.off()
 
+
+### [3] SAVE PLOT
+
+## .svg
 svg(filename = 'scottishIndyRef2014.svg')
-scotmap
+scotmapfull
 dev.off()
 
+## .png
+#png(filename = 'scottishIndyRef2014.png', width = 1200, height = 900)
+#scotmapfull
+#dev.off()
 
-## test area
-#ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon() + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + coord_equal(ratio = 1) + theme_opts
+
+
+### [NOTES]
+## If I could, I'd improve the following [feedback welcome]:
+# simplify the plot object, presumably by manipulation of or extraction from the OS shapefile; the level of detail is more than necessary and slows up plotting considerably [10 mins usually!]
+# add a legend for the label numbers: could not figure out a way to associate a legend with `geom_text()` either through `scales` or `guides`; [atm being added posthoc in Inkscape]
+# move the Shetland Isles down into an inset box, thereby allowing more space for plotting the rest of Scotland; [atm being done posthoc in Inkscape]
+
+
+
+### [TEST AREA] one council only
+#testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()
+#testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
