@@ -70,24 +70,25 @@ countrysubs <- rbind(countrysubs, bosnia)
 ## the task is to fill these countries according to the 'count' variable
 
 ## our toy data:
-ISOs <- c('076', '072', '056', '050')
+## these are alpha2 ISO codes from Wikipedia: http://en.wikipedia.org/wiki/ISO_3166-1
+ISOs <- c('BR', 'BC', 'BE', 'BG')
 values <- c(6, 2, 1, 4)
-querydf <- data.frame(querylist, ISOs, values)
-headers <- c("country", "iso", "count")
+querydf <- data.frame(querylist, FIPS, values)
+headers <- c("country", "ISOs", "count")
 colnames(querydf) <- headers
 
 ## add in the Bosnia data from above
-bos <- data.frame('Bosnia and Herz.', '070', 2)
+bos <- data.frame('Bosnia and Herz.', 'BA', 2)
 colnames(bos) <- headers
 querydf <- rbind(querydf, bos)
 
-## add the IDs for these countries from the Natural Earth dataset; also calculate mean lat/long in the way used for geom_text() above, as a centrepoint for a 'bubble' plot [of course, taking the mean coordinates is a questionable approach since countries are not regular shapes; however, at this scale it's an adequate representation]
-for (query in querydf$country) {
-	rowno1 <- which(countries$name==query)
-	ID <- countries[rowno1, ]@polygons[[1]]@ID
-	rowno2 <- which(querydf$country==query)
-	querydf$id[rowno2] <- ID
-	subs <- subset(countrysubs, id == ID)
+## add the IDs for these countries from the Natural Earth dataset plus meaned coordinates (which is an inaccurate way to do it, but due to shapefile transformation above we are no longer working with lat/long coordinates (for which there exist various country centroid resources; e.g. http://gothos.info/2009/02/centroids-for-countries/))
+for (ISO in querydf$ISOs) {
+        rowno1 <- which(countries$iso_a2==ISO)
+        ID <- countries[rowno1, ]@polygons[[1]]@ID
+        rowno2 <- which(querydf$ISOs==ISO)
+        querydf$id[rowno2] <- ID
+        subs <- subset(countries_wintri_df, id == ID)
 	long <- mean(subs$long)
 	lat <- mean(subs$lat)
 	querydf$long[rowno2] <- long
@@ -131,6 +132,8 @@ for (query in querydf$country) {
 	subs <- subset(countrysubs, id == ID)
 	nwFillSome <- nwFillSome + geom_polygon(data = subs, aes(long, lat, group = id), fill = colpal1[querydf$count[rowno2]])
 }
+## reinstate the remaining bits of the basemap: country boundaries, graticules + geographic lines, 1:1 ratio + theme options
+nwFillSome <- nwFillSome + geom_path(data = countries_wintri_df, aes(long, lat, group = group), color = "#FFFFFF", size = 0.1) + geom_path(data = grat_wintri_df, aes(long, lat, group = group, fill = NULL), linetype = 1, colour = "#C4C4BE", size = 0.1) + geom_path(data = lines_wintri_nonidl, aes(long, lat, group = group, fill = NULL), linetype = 2, colour = "#FFFFFF", size = 0.25) + coord_equal(ratio = 1) + theme_opts
 
 ## save the resulting plot:
 png(filename = 'output/worldmap_tile-selected.png', width = 1200, height = 900)
