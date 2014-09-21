@@ -108,12 +108,12 @@ system.time(print(scotmapfull))
 ### [3] SAVE PLOT
 
 ## .svg
-svg(filename = 'scottishIndyRef2014.svg')
+svg(filename = 'output/scottishIndyRef2014.svg')
 scotmapfull
 dev.off()
 
 ## .png
-#png(filename = 'scottishIndyRef2014.png', width = 1200, height = 900)
+#png(filename = 'output/scottishIndyRef2014.png', width = 1200, height = 900)
 #scotmapfull
 #dev.off()
 
