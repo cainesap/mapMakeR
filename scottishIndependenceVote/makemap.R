@@ -121,9 +121,9 @@ dev.off()
 
 ### [NOTES]
 ## If I could, I'd improve the following [feedback welcome]:
-# simplify the plot object, presumably by manipulation of or extraction from the OS shapefile; the level of detail is more than necessary and slows up plotting considerably [10 mins usually!]
-# add a legend for the label numbers: could not figure out a way to associate a legend with `geom_text()` either through `scales` or `guides`; [atm being added posthoc in Inkscape]
-# move the Shetland Isles down into an inset box, thereby allowing more space for plotting the rest of Scotland; [atm being done posthoc in Inkscape]
+# simplify the plot object, presumably by manipulation of or extraction from the OS shapefile; the level of detail is more than necessary and slows up plotting considerably [10 mins usually]
+# add a legend for the label numbers: could not figure out a way to associate a legend with `geom_text()` either through `scales` or `guides`; [atm being added posthoc in Preview] -> `scottishIndyRef2014_annotated(-cropped).png`
+# move the Shetland Isles down into an inset box, thereby allowing more space for plotting the rest of Scotland; [not yet done but would like to use Inkscape .. import of .svg file currently causes almost immediate meltdown though, presumed link to point (1)?] 
 
 
 
