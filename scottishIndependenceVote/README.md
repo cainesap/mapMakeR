@@ -13,7 +13,7 @@ Map of Scottish Councils and vote counts for each in Scottish Independence Refer
 - the makeMap Rscript should be well commented; if anything's unclear, please contact me [suggested improvements welcome also].
 
 ## Room for improvement
-If I could, I'd improve the following [feedback welcome]:
-1. simplify the plot object, presumably by manipulation of or extraction from the OS shapefile; the level of detail is more than necessary and slows up plotting considerably [10 mins usually!]
-2. add a legend for the label numbers: could not figure out a way to associate a legend with `geom_text()` either through `scales` or `guides`; [atm being added posthoc in Preview] -> `scottishIndyRef2014_annotated(-cropped).png`
-3. move the Shetland Isles down into an inset box, thereby allowing more space for plotting the rest of Scotland; [not yet done but would like to use Inkscape .. import of .svg file currently causes almost immediate meltdown though, presumed link to point (1)?]
+If I could, I'd improve the following [feedback welcome]:  
+1. simplify the plot object, presumably by manipulation of or extraction from the OS shapefile; the level of detail is more than necessary and slows up plotting considerably [10 mins usually!]  
+2. add a legend for the label numbers: could not figure out a way to associate a legend with `geom_text()` either through `scales` or `guides`; [atm being added posthoc in Preview] -> `scottishIndyRef2014_annotated(-cropped).png`  
+3. move the Shetland Isles down into an inset box, thereby allowing more space for plotting the rest of Scotland; [not yet done but would like to use Inkscape .. import of .svg file currently causes almost immediate meltdown though, presumed link to point (1)?]  
