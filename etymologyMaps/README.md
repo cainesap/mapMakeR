@@ -5,7 +5,7 @@ Python script and resources to generate etymology maps per the ['etymology maps'
 
 ### Contents:
 - `Archive`: original Python mapmaking script plus unused files from the [Wiki Utilities](http://www.reddit.com/r/etymologymaps/wiki/index) provided by reddit user [/u/Quoar](http://www.reddit.com/user/Quoar) [update 2014-09-25: the directory appears to have been taken down from [the given link](http://cantat.free.fr/a/languagemap/)];
-- `elephant`: dictionary and outputs for my first etymology map on 'elephant';
+- `elephant`: dictionary and outputs for my first etymology map on 'elephant', includes research notes provided by [Prof. Václav Blažek](http://www.muni.cz/people/905);
 - `resources`: dictionary template, language codes dictionary, map template;
 - `generateMap_v1.py`: my adaptation of Python script written by reddit user [/u/Quoar](http://www.reddit.com/user/Quoar).
 
@@ -19,3 +19,4 @@ Python script and resources to generate etymology maps per the ['etymology maps'
 7. annotate with a title, legend and etymological explanations (best to save as a different filename);
 8. export as .png or other image format;
 9. upload to [Imgur](http://imgur.com/) and submit link to ['etymology maps' subreddit](http://www.reddit.com/r/etymologymaps/).
+10. let me/theWorld know about it! [@cainesap](https://twitter.com/cainesap) #etymologymaps
