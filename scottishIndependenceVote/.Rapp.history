@@ -1,0 +1,663 @@
+subset(molten, candidate = "9500B" & marker != "marker1")
+subset(molten, candidate = "9500B" && marker != "marker1")
+subset(molten, candidate = "9500B" && marker =! "marker1")
+subset(molten, candidate = "9500B" && marker != "marker1")
+subset(molten, candidate == "9500B" && marker != "marker1")
+subset(molten, candidate == "9500B" & marker != "marker1")
+for (cand in cands) {#
+	subs <- subset(molten, candidate == cand & marker != "marker1")#
+	print(subs)#
+}
+for (cand in cands) {#
+	subs <- subset(molten, candidate == cand & marker != "marker1")#
+	mu <- mean(subset(subs, marker == "agreed")$mark)#
+	print(subs)#
+	print(mu)#
+}
+means
+markers <- c('marker1', 'marker2', 'agreed')#
+for (cand in cands) {#
+	subs1 <- subset(molten, candidate == cand)#
+	for (mk in markers) {#
+		subs2 <- subset(subs2, marker == mk)#
+		mu <- mean(subs2$mark)#
+		print(paste(mk, mu))#
+	}#
+}
+markers <- c('marker1', 'marker2', 'agreed')#
+for (cand in cands) {#
+	subs1 <- subset(molten, candidate == cand)#
+	for (mk in markers) {#
+		subs2 <- subset(subs1, marker == mk)#
+		mu <- mean(subs2$mark)#
+		print(paste(mk, mu))#
+	}#
+}
+for (cand in cands) {#
+	print(cand)#
+	subs1 <- subset(molten, candidate == cand)#
+	for (mk in markers) {#
+		subs2 <- subset(subs1, marker == mk)#
+		mu <- mean(subs2$mark)#
+		print(paste(mk, mu))#
+	}#
+}
+subset(molten, candidate == "9491G")
+mean(54+ 58 + 64)
+mean(54 + 58 + 64)
+(54 + 58 + 64)
+(54 + 58 + 64) / 3
+(54 + 58 + 66) / 3
+(52 + 54 + 63) / 3
+(52 + 54 + 66) / 3
+read.delim('/Users/apcaines/Dropbox/Corpora/BULATS/ALTA/BULATS/collatedTranscrCpScores.txt')
+read.delim('/Users/apcaines/Dropbox/Corpora/BULATS/ALTA/BULATS/collatedTranscrCpScores.txt', header=F)
+CPs <- read.delim('/Users/apcaines/Dropbox/Corpora/BULATS/ALTA/BULATS/collatedTranscrCpScores.txt', header=F)#
+#
+col.names(CPs) <- c('exam', 'candidate', 'section', 'recording', 'startline', 'windowsize', 'gsWords', 'csWords', 'cs/gs', 'csMatches', 'csMatches/gs')
+CPs <- read.delim('/Users/apcaines/Dropbox/Corpora/BULATS/ALTA/BULATS/collatedTranscrCpScores.txt', header=F)#
+#
+colnames(CPs) <- c('exam', 'candidate', 'section', 'recording', 'startline', 'windowsize', 'gsWords', 'csWords', 'cs/gs', 'csMatches', 'csMatches/gs')
+CPs
+colnames(CPs) <- c('exam', 'candidate', 'section', 'recording', 'startline', 'windowsize', 'GsWords', 'CsWords', 'CsGsPerc', 'CsMatches', 'CsMatchPerc')#
+#
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc)) + geom_point()
+colnames(CPs) <- c('exam', 'candidate', 'section', 'recording', 'startline', 'windowsize', 'GsWords', 'CsWords', 'CsGsPerc', 'CsMatches', 'CsMatchPerc')#
+#
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc), colour = candidate) + geom_point()
+colnames(CPs) <- c('exam', 'candidate', 'section', 'recording', 'startline', 'windowsize', 'GsWords', 'CsWords', 'CsGsPerc', 'CsMatches', 'CsMatchPerc')#
+#
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc), fill = candidate) + geom_point()
+colnames(CPs) <- c('exam', 'candidate', 'section', 'recording', 'startline', 'windowsize', 'GsWords', 'CsWords', 'CsGsPerc', 'CsMatches', 'CsMatchPerc')#
+#
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc), group = candidate) + geom_point()
+colnames(CPs) <- c('exam', 'candidate', 'section', 'recording', 'startline', 'windowsize', 'GsWords', 'CsWords', 'CsGsPerc', 'CsMatches', 'CsMatchPerc')#
+#
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc)) + geom_point(fill = candidate)
+colnames(CPs) <- c('exam', 'candidate', 'section', 'recording', 'startline', 'windowsize', 'GsWords', 'CsWords', 'CsGsPerc', 'CsMatches', 'CsMatchPerc')#
+#
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc), fill = candidate) + geom_point()
+colnames(CPs) <- c('exam', 'candidate', 'section', 'recording', 'startline', 'windowsize', 'GsWords', 'CsWords', 'CsGsPerc', 'CsMatches', 'CsMatchPerc')#
+#
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc), group = candidate) + geom_point()
+colnames(CPs) <- c('exam', 'candidate', 'section', 'recording', 'startline', 'windowsize', 'GsWords', 'CsWords', 'CsGsPerc', 'CsMatches', 'CsMatchPerc')#
+#
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc), colour = candidate) + geom_point()
+CPs
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc)) + geom_point() + facet_wrap(~ candidate)
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc, fill = exam)) + geom_point()
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc, colour = exam)) + geom_point()
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc, colour = candidate)) + geom_point()
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc, colour = candidate)) + geom_point() + facet_wrap(~ candidate) + theme(legend.pos = none)
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc, colour = candidate)) + geom_point() + facet_wrap(~ candidate) + theme(legend.position = 'none')
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc, colour = candidate)) + geom_point() + facet_wrap(~ section)
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc, colour = section)) + geom_point() + facet_wrap(~ candidate)
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc, colour = section)) + geom_point(size = 3) + facet_wrap(~ candidate)
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc, colour = section)) + geom_point(size = 3, shape = 9) + facet_wrap(~ candidate)
+ggplot(data = CPs, aes(x = GsWords, y = CsMatchPerc, colour = section)) + geom_point(size = 3, shape = 15) + facet_wrap(~ candidate)
+library(shiny)
+runGitHub( "https://github.com/DTALcompLingCluster/ALTA/tree/master/presentations/shinyPlots/parseProbs", "cainesap")
+runGitHub( "ALTA/tree/master/presentations/shinyPlots/parseProbs", "cainesap")
+runGitHub( "DTALcompLingCluster/ALTA/tree/master/presentations/shinyPlots/parseProbs", "cainesap")
+?runGitHub
+runGitHub( "ALTA/tree/master/presentations/shinyPlots/parseProbs", "DTALcompLingCluster")
+runGitHub( "parseProbs", "cainesap")
+?runGitHub
+runGitHub( "parseProbs", "DTALcompLingCluster", subdir = "ALTA/presentations/shinyPlots")
+install.packages('ggplot2')
+install.packages('devtools')
+devtools::install_github('rstudio/shinyapps')
+library(shinyapps)
+shinyapps::setAccountInfo(name='cainesap', token='8116B27409074D8320892DBE6CDF0E99', secret='q2fAUjGE8zndqNjUP8DXfNL3JkXjYEhYloGKosYr')
+install.packages('languageR')
+install.packages('shiny')
+library(ggplot2); library(ggmap); library(maptools); library(maps); library(rgeos); library(rgdal); library(grDevices)#
+#
+## change working directory#
+setwd("~/Dropbox/workspace/gitHub/mapMakeR/scottishIndependenceVote/")#
+### [1] FETCH & MANIPULATE DATA#
+#
+## read Boundary Lines shapefile downloaded from Ordnance Survey OpenData: http://www.ordnancesurvey.co.uk/opendata/viewer/index.html#
+osmap <- readOGR(dsn = "bdline_gb", layer = "unitary_electoral_division_region")
+str(osmap)
+unique(osmap$FILE_NAME)
+which(osmap$NAME=="Aberdeen")
+which(osmap$NAME=="Midlothian")
+osmap <- readOGR(dsn = "bdline_gb", layer = "district_borough_unitary_region")
+str(osmap)
+which(osmap$NAME=="Aberdeen City")
+which(osmap$NAME=="Aberdeenshire")
+which(osmap$NAME=="Angus")
+which(osmap$NAME=="Argyll and Bute")
+osmap@data[366]
+osmap@data[366,]
+osmap <- readOGR(dsn = "bdline_gb", layer = "unitary_electoral_division_region")
+which(osmap$NAME=="Argyll and Bute")
+osmap <- readOGR(dsn = "bdline_gb", layer = "district_borough_unitary_region")
+osmap[366]
+osmap[366,]
+osmap_transf <- spTransform(osmap, CRS("+proj=tmerc"))#
+osmap_df <- fortify(osmap_transf)
+head(osmap_df)
+osmap@data[366,]
+str(osmap_df)
+which(osmap_df$id=="125401")
+which(osmap_df$id=="30106")
+which(osmap_df$id=="855")
+which(osmap_df$id=="2")
+length(unique(osmap_df$id))
+unique(osmap_df$id)
+which(osmap$NAME=="West Lothian")
+osmap@data[345,]
+osmap@data[366,]
+osmap[366,]
+osmap$ID[366,]
+osmap$ID[366]
+results <- read.csv("scotIndyRefResults.csv")
+head(results)
+results$Council.area
+is.type(osmap)
+type(osmap)
+typeof(osmap)
+class(osmap)
+test <- SpatialPolygonsDataFrame()
+?SpatialPolygonsDataFrame
+which(osmap_df$id=="365")
+head(osmap_df)
+osmap$ID[366]
+osmap@data[366,]
+argyll <- subset(osmap_df, id=="365")
+ggplot(argyll, aes(x = long, y = lat, group = group, fill = hole)) + geom_polygon() + scale_fill_manual(values = c("#E4EBBC", "#BEEBF7"), guide = "none")
+head(which(osmap_df$id=="0"))
+councils <- results$Council.area#
+scotland <- data.frame()#
+for (council in councils){#
+	shpno <- which(osmap$NAME == council)#
+	counshp <- subset(osmap_df, id == shpno-1)#
+	scotland <- rbind(scotland, counshp)#
+}
+ggplot(scotland, aes(x = long, y = lat, group = group, fill = hole)) + geom_polygon() + scale_fill_manual(values = c("#E4EBBC", "#BEEBF7"), guide = "none")
+scotland <- data.frame()#
+for (council in councils){#
+	shpno <- which(osmap$NAME == council)#
+	counshp <- subset(osmap_df, id == shpno-1)#
+	counshp$Council.area <- council#
+	scotland <- rbind(scotland, counshp)#
+}
+scotland <- data.frame()#
+for (council in councils){#
+	shpno <- which(osmap$NAME == council)#
+	counshp <- subset(osmap_df, id == shpno-1)#
+#	counshp$Council.area <- council#
+	scotland <- rbind(scotland, counshp)#
+}
+head(results)
+for (council in councils){#
+	# build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+#	counshp <- subset(osmap_df, id == dfID)#
+#	scotland <- rbind(scotland, counshp)#
+	# add id to results.csv#
+	rowno <- which(results$Council.area == council)#
+	results$id[rowno,] <- dfID#
+}
+for (council in councils){#
+	# build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+#	counshp <- subset(osmap_df, id == dfID)#
+#	scotland <- rbind(scotland, counshp)#
+	# add id to results.csv#
+	print(dfID)#
+	rowno <- which(results$Council.area == council)#
+	print(results[rowno,])#
+#	results$id[rowno,] <- dfID#
+}
+results1 <- results
+results1$id[32,] <- dfID
+str(results1)
+str(dfID)
+results1$id[32,] <- as.character(dfID)
+for (council in councils){#
+	# build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+#	counshp <- subset(osmap_df, id == dfID)#
+#	scotland <- rbind(scotland, counshp)#
+	# add id to results.csv#
+	rowno <- which(results$Council.area == council)#
+	results$id[rowno] <- dfID#
+}
+for (council in councils){#
+	# build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+#	counshp <- subset(osmap_df, id == dfID)#
+#	scotland <- rbind(scotland, counshp)#
+	# add id to results.csv#
+	rowno <- which(results$Council.area == council)#
+	results[rowno,]$id <- dfID#
+}
+for (council in councils){#
+	# build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+#	counshp <- subset(osmap_df, id == dfID)#
+#	scotland <- rbind(scotland, counshp)#
+	# add id to results.csv#
+	IDs <- append(IDs, dfID)#
+#	rowno <- which(results$Council.area == council)#
+#	results$id[rowno] <- dfID#
+}#
+results <- cbind(results, IDs)
+IDs <- vector()#
+for (council in councils){#
+	# build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+#	counshp <- subset(osmap_df, id == dfID)#
+#	scotland <- rbind(scotland, counshp)#
+	# add id to results.csv#
+	IDs <- append(IDs, dfID)#
+#	rowno <- which(results$Council.area == council)#
+#	results$id[rowno] <- dfID#
+}#
+results <- cbind(results, IDs)
+IDs
+length(IDs)
+for (council in councils){#
+	print(council)#
+	# build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+	print(dfID)#
+#	counshp <- subset(osmap_df, id == dfID)#
+#	scotland <- rbind(scotland, counshp)#
+	# add id to results.csv#
+	IDs <- append(IDs, dfID)#
+#	rowno <- which(results$Council.area == council)#
+#	results$id[rowno] <- dfID#
+}
+which(osmap$NAME == "Comhairle nan Eilean Siar")
+results <- read.csv("scotIndyRefResults.csv")#
+councils <- results$Council.area
+for (council in councils){#
+	print(council)#
+	# build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+	print(dfID)#
+#	counshp <- subset(osmap_df, id == dfID)#
+#	scotland <- rbind(scotland, counshp)#
+	# add id to results.csv#
+	IDs <- append(IDs, dfID)#
+#	rowno <- which(results$Council.area == council)#
+#	results$id[rowno] <- dfID#
+}
+results <- read.csv("scotIndyRefResults.csv")#
+councils <- results$Council.area
+for (council in councils){#
+	print(council)#
+	# build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+	print(dfID)#
+#	counshp <- subset(osmap_df, id == dfID)#
+#	scotland <- rbind(scotland, counshp)#
+	# add id to results.csv#
+	IDs <- append(IDs, dfID)#
+#	rowno <- which(results$Council.area == council)#
+#	results$id[rowno] <- dfID#
+}
+which(osmap$NAME == "Edinburgh, City of")
+which(osmap$NAME == "City of Edinburgh")
+results <- read.csv("scotIndyRefResults.csv")#
+councils <- results$Council.area
+for (council in councils){#
+	print(council)#
+	# build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+	print(dfID)#
+#	counshp <- subset(osmap_df, id == dfID)#
+#	scotland <- rbind(scotland, counshp)#
+	# add id to results.csv#
+	IDs <- append(IDs, dfID)#
+#	rowno <- which(results$Council.area == council)#
+#	results$id[rowno] <- dfID#
+}
+which(osmap$NAME == "Na h-Eileanan Siar")
+which(osmap$NAME == "Western Isles")
+which(osmap$NAME == "Western Isles Council")
+unique(osmap$NAME)
+which(osmap$NAME == "Na h-Eileanan an Iar")
+results <- read.csv("scotIndyRefResults.csv")#
+councils <- results$Council.area
+results <- read.csv("scotIndyRefResults.csv")#
+councils <- results$Council.area#
+scotland <- data.frame()#
+for (council in councils){#
+	print(council)#
+	# build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+	print(dfID)#
+	counshp <- subset(osmap_df, id == dfID)#
+	scotland <- rbind(scotland, counshp)#
+	# add id to results.csv#
+	rowno <- which(results$Council.area == council)#
+	results$id[rowno] <- dfID#
+}
+results
+library(ggplot2); library(ggmap); library(maptools); library(maps); library(rgeos); library(rgdal); library(grDevices); library(RColorBrewer); library(scales)#
+#
+## change working directory#
+setwd("~/Dropbox/workspace/gitHub/mapMakeR/scottishIndependenceVote/")#
+### [1] FETCH & MANIPULATE DATA#
+#
+## read Boundary Lines shapefile downloaded from Ordnance Survey OpenData: http://www.ordnancesurvey.co.uk/opendata/viewer/index.html#
+osmap <- readOGR(dsn = "bdline_gb", layer = "district_borough_unitary_region")#
+osmap_transf <- spTransform(osmap, CRS("+proj=tmerc"))#
+osmap_df <- fortify(osmap_transf)
+results <- read.csv("scotIndyRefResults.csv")#
+#
+## match each council to shapefile data and build a 'scotland' data frame#
+councils <- results$Council.area#
+scotland <- data.frame()#
+for (council in councils){#
+	## build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+	counshp <- subset(osmap_df, id == dfID)#
+	scotland <- rbind(scotland, counshp)#
+	## add id to results.csv#
+	rowno <- which(results$Council.area == council)#
+	results$id[rowno] <- dfID#
+	## get label point values from shpfile#
+	longlat <- osmap_transf@polygons[[shpno]]@labpt#
+	results$long[rowno] <- longlat[1]#
+	results$lat[rowno] <- longlat[2]#
+}#
+## new columns: total number of voters; labels 1:32 for plotting in approx N->S order#
+results$Voters <- results$Yes + results$No#
+#orderedlabs <- c(1, 2, 3, 4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32)#
+orderedlabs <- c(7, 6, 8, 10, 13, 32, 12, 28, 17, 20, 23, 19, 3,  18, 14, 24, 4,  15, 27, 5,  21, 25, 2,  9,  22, 30, 1,  31, 29, 11, 16, 26)#
+results$label <- orderedlabs#
+print(results)
+theme_opts <- theme(#
+  text = element_text(family = 'Georgia', size = 14),#
+  panel.grid.minor = element_blank(), #
+  panel.grid.major = element_blank(), #
+  panel.background = element_blank(), #
+  plot.background = element_blank(),#
+  axis.line = element_blank(),#
+  axis.text.x = element_blank(),#
+  axis.text.y = element_blank(),#
+  axis.ticks = element_blank(),#
+  axis.title.x = element_blank(),#
+  axis.title.y = element_blank(),#
+  plot.background = element_rect(fill="#FFFFFF"), #
+  panel.border = element_blank())#
+#
+## vote values & colour palette#
+## we'll use the max number of colours for a sequential Brewer scale (9) though first making 8 'YESunits' to 'bin' the yes vote values with the appropriate palette colour#
+cols <- 8#
+maxYES <- max(results$Yes..)#
+minYES <- min(results$Yes..)#
+YESunit <- (maxYES - minYES) / cols#
+colpal <- brewer.pal(cols + 1, 'Reds')#
+#
+## basemap of country borders#
+scotmap <- ggplot(data = scotland, aes(x = long, y = lat, group = group)) + geom_path(color = "#F0FFFF", size = 0.1)#
+#
+## for each council, subset the data frame and add a geom_polygon to 'scotmap' object#
+for (ID in results$id) {#
+	## subset scotland data frame and reduce to hole=T only#
+	rowno <- which(results$id == ID)#
+	council <- results$Council.area[rowno]#
+	counshp1 <- subset(scotland, id == ID)#
+	counshp2 <- subset(counshp1, hole == FALSE)#
+	## identify fill colour based on 'Yes..' (proportion of yes votes); number of YESunits from minimum plus 1, to nearest integer (i.e. min = 1, max = 9)#
+	YES <- results$Yes..[rowno]#
+	councol <- round((YES - minYES) / YESunit) + 1#
+	counpal <- colpal[councol]#
+	## print info line to console and add to 'scotmap'#
+	print(paste(council, ID, YES, counpal))#
+	scotmap <- scotmap + geom_polygon(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal)#
+}
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10)) + coord_equal(ratio = 1) + theme_opts
+counpal
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + geom_text(aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10)) + geom_point(aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10)) + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + coord_equal(ratio = 1) + theme_opts
+?geom_point
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10)) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none")+ coord_equal(ratio = 1) + theme_opts + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10))
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = group, family = "Georgia", size = 10)) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, family = "Georgia", size = 10)) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10)) + coord_equal(ratio = 1) + theme_opts
+testplot <- testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10))
+testplot
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3))
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia")) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = "10pt")) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 20)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000, position = "jitter")) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000, position = "dodge")) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3, position = "dodge")) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3, position = "jitter")) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3, position = "jitter")) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 250000)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3, position = "jitter")) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 150000)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3, position = "jitter")) + scale_colour_gradient(low = "#F7F54D", high = "#0A5EF0") + scale_size_area(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 150000)) + coord_equal(ratio = 1) + theme_opts
+?scale_size_area
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3, position = "jitter")) + scale_colour_gradient(low = "#F7F54D", high = "#0A5EF0") + scale_size_area(range = c(1,6), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 150000)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3, position = "jitter")) + scale_colour_gradient(low = "#F7F54D", high = "#0A5EF0") + scale_size(range = c(1,6), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 150000)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3, position = "jitter")) + scale_colour_gradient(low = "#F7F54D", high = "#0A5EF0") + scale_size(range = c(1,6), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3, position = "jitter")) + scale_colour_gradient(low = "#F7F54D", high = "#0A5EF0") + scale_size(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3, position = "jitter")) + scale_colour_gradient(high = "#F7F54D", low = "#0A5EF0") + scale_size(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5, position = "jitter")) + scale_colour_gradient(high = "#F7F54D", low = "#0A5EF0") + scale_size(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5, position = "jitter")) + scale_colour_gradient(high = "#F7F54D", low = "#0A5EF0") + scale_size(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000, hjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5, position = "jitter")) + scale_colour_gradient(high = "#F7F54D", low = "#0A5EF0") + scale_size(labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5, position = "jitter")) + scale_colour_gradient(high = "#F7F54D", low = "#0A5EF0") + scale_size_continuous(range = c(1,6) labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5, position = "jitter")) + scale_colour_gradient(high = "#F7F54D", low = "#0A5EF0") + scale_size_continuous(range = c(1,6), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5, position = "jitter")) + scale_colour_gradient(high = "#F7F54D", low = "#0A5EF0") + scale_size_continuous(range = c(4,10), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5, position = "jitter")) + scale_colour_gradient(high = "#F7F54D", low = "#0A5EF0") + scale_size_continuous(range = c(4,8), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 200000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5, position = "jitter")) + scale_colour_gradient(high = "#F7F54D", low = "#0A5EF0") + scale_size_continuous(range = c(4,8), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5, position = "jitter")) + scale_colour_gradient(low = "#F7F54D", high = "#0A5EF0") + scale_size_continuous(range = c(4,8), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5, position = "jitter")) + scale_colour_gradient(low = "#F7F54D", high = "#0A5EF0") + scale_size_continuous(range = c(4,10), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()#
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5, position = "jitter")) + scale_colour_gradient(low = "#F7F54D", high = "#0A5EF0") + scale_size_continuous(range = c(4,9), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+scotmap <- scotmap + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_continuous(range = c(4, 8), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts#
+#
+## render in console / save to file; WARNING: plotting takes a long time! [approx 10mins on my machine; iMac 2.7GHz, 8GB mem; probably a way to simplify the shapefiles, please get back to me if so]#
+system.time(print(scotmap))
+scotmap <- ggplot(data = scotland, aes(x = long, y = lat, group = group)) + geom_path(color = "#F0FFFF", size = 0.1)#
+#
+## for each council, subset the data frame and add a geom_polygon to 'scotmap' object#
+for (ID in results$id) {#
+	## subset scotland data frame and reduce to hole=T only#
+	rowno <- which(results$id == ID)#
+	council <- results$Council.area[rowno]#
+	counshp1 <- subset(scotland, id == ID)#
+	counshp2 <- subset(counshp1, hole == FALSE)#
+	## identify fill colour based on 'Yes..' (proportion of yes votes); number of YESunits from minimum plus 1, to nearest integer (i.e. min = 1, max = 9)#
+	YES <- results$Yes..[rowno]#
+	councol <- round((YES - minYES) / YESunit) + 1#
+	counpal <- colpal[councol]#
+	## print info line to console and add to 'scotmap'#
+	print(paste(council, ID, YES, counpal))#
+	scotmap <- scotmap + geom_polygon(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal)#
+}#
+#
+## final plot bits#
+scotmapfull <- scotmap + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_continuous(range = c(4, 8), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot <- ggplot(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal) + geom_polygon()
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = Voters, colour = Turnout, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = Voters, colour = Turnout, hjust = 1, vjust = 1)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_continuous(range = c(4, 8), labels = comma) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = Voters, colour = Turnout, hjust = 1, vjust = 1)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_continuous(range = c(5, 7), labels = comma) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = Turnout, colour = Voters, hjust = 1, vjust = 1)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_continuous(range = c(5, 7), labels = comma) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10, colour = Voters, hjust = 1, vjust = 1)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + coord_equal(ratio = 1) + theme_opts
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10, colour = Turnout, hjust = 1, vjust = 1)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + coord_equal(ratio = 1) + theme_opts
+testplot + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 10, colour = Voters, hjust = 1, vjust = 1)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + coord_equal(ratio = 1) + theme_opts
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(low = "#A5C1F2", high = "#0A5EF0") + scale_size_continuous(range = c(4, 8), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.3)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(4, 8), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(4, 8), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(4, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(4, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 80000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+testplot + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 80000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+scotmapfull <- scotmap + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts#
+#
+## render in console / save to file; WARNING: plotting takes a long time! [approx 10mins on my machine; iMac 2.7GHz, 8GB mem; probably a way to simplify the shapefiles, please get back to me if so]#
+system.time(print(scotmapfull))
+svg(filename = 'scottishIndyRef2014.svg')#
+scotmapfull#
+dev.off()
+png(filename = 'scottishIndyRef2014.png', width = 1200, height = 900)#
+scotmapfull#
+dev.off()
+results
+max(results$Turnout)
+min(results$Turnout)
+results[with(results, -label,)]
+results[with(results, order(-label)),]
+results[with(results, order(label)),]
+results[with(results, order(-Yes..)),]
+library(ggplot2); library(ggmap); library(maptools); library(maps); library(rgeos); library(rgdal); library(grDevices); library(RColorBrewer); library(scales)#
+#
+## change working directory#
+setwd("~/Dropbox/workspace/gitHub/mapMakeR/scottishIndependenceVote/")
+results <- read.csv("referendumResults.csv")
+osmap <- readOGR(dsn = "bdline_gb", layer = "district_borough_unitary_region")#
+osmap_transf <- spTransform(osmap, CRS("+proj=tmerc"))#
+osmap_df <- fortify(osmap_transf)
+councils <- results$Council.area#
+scotland <- data.frame()#
+for (council in councils){#
+	## build df subset#
+	shpno <- which(osmap$NAME == council)#
+	dfID <- shpno - 1  # minus one from shapefile rowno#
+	counshp <- subset(osmap_df, id == dfID)#
+	scotland <- rbind(scotland, counshp)#
+	## add id to results.csv#
+	rowno <- which(results$Council.area == council)#
+	results$id[rowno] <- dfID#
+	## get label point values from shpfile#
+	longlat <- osmap_transf@polygons[[shpno]]@labpt#
+	results$long[rowno] <- longlat[1]#
+	results$lat[rowno] <- longlat[2]#
+}#
+## new columns: total number of voters; labels 1:32 for plotting in approx N->S order#
+results$Voters <- results$Yes + results$No#
+#orderedlabs <- c(1, 2, 3, 4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32)#
+orderedlabs <- c(7, 6, 8, 10, 13, 32, 12, 28, 17, 20, 23, 19, 3,  18, 14, 24, 4,  15, 27, 5,  21, 25, 2,  9,  22, 30, 1,  31, 29, 11, 16, 26)#
+results$label <- orderedlabs#
+print(results)
+theme_opts <- theme(#
+  text = element_text(family = 'Georgia', size = 14),#
+  panel.grid.minor = element_blank(), #
+  panel.grid.major = element_blank(), #
+  panel.background = element_blank(), #
+  plot.background = element_blank(),#
+  axis.line = element_blank(),#
+  axis.text.x = element_blank(),#
+  axis.text.y = element_blank(),#
+  axis.ticks = element_blank(),#
+  axis.title.x = element_blank(),#
+  axis.title.y = element_blank(),#
+  plot.background = element_rect(fill="#FFFFFF"), #
+  panel.border = element_blank())#
+#
+## vote values & colour palette#
+## we'll use the max number of colours for a sequential Brewer scale (9) though first making 8 'YESunits' to 'bin' the yes vote values with the appropriate palette colour#
+cols <- 8#
+maxYES <- max(results$Yes..)#
+minYES <- min(results$Yes..)#
+YESunit <- (maxYES - minYES) / cols#
+colpal <- brewer.pal(cols + 1, 'Reds')
+scotmap <- ggplot(data = scotland, aes(x = long, y = lat, group = group)) + geom_path(color = "#F0FFFF", size = 0.1)
+scotmapfull <- scotmap + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+scotmapfull
+results
+results
+results[with(results, order(label),)]
+results[with(results, order(label)),]
+scotmap <- ggplot(data = scotland, aes(x = long, y = lat, group = group)) + geom_path(color = "#F0FFFF", size = 0.1) + xlim(-170000, -130000) + ylim(6150000, 6300000)
+scotmapfull <- scotmap + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts; scotmapfull
+scotmap <- ggplot(data = scotland, aes(x = long, y = lat, group = group)) + geom_path(color = "#F0FFFF", size = 0.1) + xlim(-300000, -130000) + ylim(6150000, 6300000)
+scotmapfull <- scotmap + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts; scotmapfull
+for (ID in results$id) {#
+	## subset scotland data frame and reduce to hole=T only#
+	rowno <- which(results$id == ID)#
+	council <- results$Council.area[rowno]#
+	counshp1 <- subset(scotland, id == ID)#
+	counshp2 <- subset(counshp1, hole == FALSE)#
+	## identify fill colour based on 'Yes..' (proportion of yes votes); number of YESunits from minimum plus 1, to nearest integer (i.e. min = 1, max = 9)#
+	YES <- results$Yes..[rowno]#
+	councol <- round((YES - minYES) / YESunit) + 1#
+	counpal <- colpal[councol]#
+	## print info line to console and add to 'scotmap'#
+	print(paste(council, ID, YES, counpal))#
+	scotmap <- scotmap + geom_polygon(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal)#
+}
+scotmapcent <- scotmap + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+system.time(print(scotmapcent))
+scotmap <- ggplot(data = scotland, aes(x = long, y = lat, group = group)) + geom_path(color = "#F0FFFF", size = 0.1)
+for (ID in results$id) {#
+	## subset scotland data frame and reduce to hole=T only#
+	rowno <- which(results$id == ID)#
+	council <- results$Council.area[rowno]#
+	counshp1 <- subset(scotland, id == ID)#
+	counshp2 <- subset(counshp1, hole == FALSE)#
+	## identify fill colour based on 'Yes..' (proportion of yes votes); number of YESunits from minimum plus 1, to nearest integer (i.e. min = 1, max = 9)#
+	YES <- results$Yes..[rowno]#
+	councol <- round((YES - minYES) / YESunit) + 1#
+	counpal <- colpal[councol]#
+	## print info line to console and add to 'scotmap'#
+	print(paste(council, ID, YES, counpal))#
+	scotmap <- scotmap + geom_polygon(data = counshp2, aes(x = long, y = lat, group = group), fill = counpal)#
+}
+scotmapcent <- scotmap + geom_point(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + xlim(-300000, -130000) + ylim(6150000, 6300000) + coord_equal(ratio = 1) + theme_opts
+system.time(print(scotmapcent))
+scotmapcent <- ggplot(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5), geom = "point") + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + xlim(-300000, -130000) + ylim(6150000, 6300000) + coord_equal(ratio = 1) + theme_opts
+system.time(print(scotmapcent))
+scotmapcent <- ggplot(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5), geom = "point") + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+system.time(print(scotmapcent))
+scotmapcent <- ggplot(data = results, aes(x = long, y = lat, group = NULL, size = Voters, colour = Turnout, alpha = 0.5)) + geom_point() + scale_colour_gradient(high = "#EB2AD1", low = "#0A5EF0") + scale_size_continuous(range = c(3, 7), labels = comma) + scale_alpha(guide = "none") + geom_text(data = results, aes(x = long, y = lat, label = label, group = NULL, family = "Georgia", size = 100000, hjust = 1, vjust = 1)) + coord_equal(ratio = 1) + theme_opts
+system.time(print(scotmapcent))

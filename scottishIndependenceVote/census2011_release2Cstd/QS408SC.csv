@@ -1,0 +1,44 @@
+Scotland's Census 2011 - National Records of Scotland
+Table QS408SC - Occupancy rating (rooms) (1)
+All households
+
+,All households,+2 or more,1,0,-1,-2 or less
+Scotland,"2,372,777","903,732","663,261","591,439","168,653","45,692"
+Aberdeen City,"103,371","31,738","27,129","32,933","9,273","2,298"
+Aberdeenshire,"104,714","58,490","22,919","18,580","3,830",895
+Angus,"51,616","23,251","13,208","11,951","2,634",572
+Argyll & Bute,"40,125","19,212","10,276","8,040","2,100",497
+Clackmannanshire,"22,734","9,365","6,364","5,379","1,217",409
+Dumfries & Galloway,"67,980","34,052","17,479","13,026","2,729",694
+Dundee City,"69,193","18,626","20,784","22,108","6,140","1,535"
+East Ayrshire,"53,919","20,884","16,814","12,414","2,997",810
+East Dunbartonshire,"43,473","22,628","10,573","7,829","1,912",531
+East Lothian,"42,905","17,909","11,898","9,892","2,579",627
+East Renfrewshire,"37,225","19,343","9,113","6,580","1,795",394
+"Edinburgh, City of","223,051","68,684","63,087","62,285","23,694","5,301"
+Eilean Siar,"12,576","7,585","2,726","1,780",392,93
+Falkirk,"68,732","27,737","21,655","15,062","3,375",903
+Fife,"160,952","67,964","47,047","35,997","7,963","1,981"
+Glasgow City,"285,693","53,242","83,843","98,916","37,783","11,909"
+Highland,"102,091","52,766","24,927","18,668","4,414","1,316"
+Inverclyde,"37,434","11,105","11,596","10,657","3,147",929
+Midlothian,"34,978","14,410","10,498","7,555","1,957",558
+Moray,"40,062","20,484","9,838","7,723","1,620",397
+North Ayrshire,"62,498","24,032","18,681","14,910","3,901",974
+North Lanarkshire,"145,998","48,139","46,364","37,686","10,439","3,370"
+Orkney Islands,"9,725","5,644","2,057","1,349",602,73
+Perth & Kinross,"64,777","31,372","15,806","13,536","3,281",782
+Renfrewshire,"80,902","26,435","24,301","22,635","5,938","1,593"
+Scottish Borders,"52,498","25,691","13,224","10,796","2,358",429
+Shetland Islands,"9,950","5,577","2,237","1,582",441,113
+South Ayrshire,"51,286","23,323","13,575","11,130","2,620",638
+South Lanarkshire,"139,188","54,294","40,922","33,272","8,368","2,332"
+Stirling,"37,566","18,161","9,160","7,676","1,968",601
+West Dunbartonshire,"42,167","11,320","13,679","12,942","3,287",939
+West Lothian,"73,398","30,269","21,481","16,550","3,899","1,199"
+
+"(1) Occupancy rating provides a measure of whether a household's accommodation is overcrowded or under-occupied.  It compares the actual number of rooms available to a household and a notional measure of the number of rooms required given the number, age and relationships of the people in the household.  An occupancy rating of -1 implies that a household has one fewer room than required for the people living there, whereas +1 implies that they have one more room than the standard requirement."
+Crown copyright 2013
+"For further information on variables, see www.scotlandscensus.gov.uk/variables"
+"In order to protect against disclosure of personal information, some records have been swapped between different geographic areas.  Some cell values will be affected, particularly small values at the most detailed geographies."
+
