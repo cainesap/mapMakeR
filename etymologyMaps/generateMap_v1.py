@@ -18,7 +18,7 @@ import sys
 outputMap=sys.argv[1].replace('dictionary','map').replace('.txt','.svg')
 
 #load the .svg map:
-theMap = open('europe_template.svg',"r")
+theMap = open('resources/europe_template.svg',"r")
 theMapSource = theMap.read()
 
 #this is the list of languages and corresponding original colors in the template:
