@@ -3,7 +3,7 @@ mapMakeR
 
 Contents:
 
-* etymologyMaps: contributions to [Reddit etymology maps page](http://www.reddit.com/r/etymologymaps/)
+* etymologyMaps: contributions to ['etymology maps' subreddit](http://www.reddit.com/r/etymologymaps/)
 
 * scottishIndependenceVote: map of 'yes' voting proportions in Scottish Councils in Independence Referendum 2014
 
