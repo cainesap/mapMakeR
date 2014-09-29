@@ -27,7 +27,7 @@ glg	elefante	green
 hrv	slon	pink
 hun	elefánt	green
 hye	փիղ(p'igh)	orange
-isl	fíl	blue
+isl	fíll	blue
 ita	elefante	green
 kat	სპილო(sp'ilo)	orange
 kaz	піл(pil)	orange
