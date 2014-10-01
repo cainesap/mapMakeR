@@ -2,8 +2,14 @@
 
 ## firstly, fetch a map of the world via the 'rworldmap' package and merge countries by 'continent' var (source: http://stackoverflow.com/a/20150341/829256)
 
-library(rworldmap); library(rgeos)
+library(rworldmap); library(rgeos); library(maptools)
 sPDF <- getMap()
+
+# what happens to centroid if we exclude Greenland (GL) and Iceland (IS) from 'Eurasia', per: https://twitter.com/Sim0nRedfern/status/517149762714607616 and https://twitter.com/Sim0nRedfern/status/517150243415420928
+sPDF$continent[which(sPDF$ISO_A2=="GL")] <- "North America"
+sPDF$continent[which(sPDF$ISO_A2=="IS")] <- "North America"
+
+# make merged polygons by continent
 cont <-
     sapply(levels(sPDF$continent),
            FUN = function(i) {
@@ -32,7 +38,6 @@ print(trueCentroids)
 plot(cont)
 points(trueCentroids,pch=2)
 
+## 1. without Greenland/Iceland adjustment, this leads you to the following Google Map: https://www.google.co.uk/maps/place/50%C2%B001'19.8%22N+70%C2%B019'47.9%22E/@50.022154,70.32997,3z/data=!4m2!3m1!1s0x0:0x0
 
-## all of which leads you to the following Google Map: https://www.google.co.uk/maps/place/50%C2%B001'19.8%22N+70%C2%B019'47.9%22E/@50.022154,70.32997,3z/data=!4m2!3m1!1s0x0:0x0
-
-## N.B. the above calculations include Greenland in the continent of Eurasia
+## 2. with Greenland/Iceland adjustment, it is: https://www.google.co.uk/maps/place/47%C2%B030'49.4%22N+81%C2%B043'42.4%22E/@47.513733,81.72844,3z/data=!4m2!3m1!1s0x0:0x0
