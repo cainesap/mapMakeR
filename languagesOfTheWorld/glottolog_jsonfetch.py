@@ -1,46 +1,42 @@
 ## parse Glottolog JSON data
-
 import json, urllib2
 
-## all language data
+
+## list of resources
 response = urllib2.urlopen('http://glottolog.org/resourcemap.json?rsc=language')
 data = json.load(response)
 
-#try:
-# pretty printing of json-formatted string
-#print json.dumps(data, sort_keys=True, indent=4)
 
-# print one languoid ID
-#print "first languoid ID: ", data['resources'][0]['id']
-
-# loop over all languoids, fetch jsondata, make list of dictionaries
-length = len(data['resources'])
-print(length)
-counter = 0
-glotto = []
+## loop over all languoids, fetch jsondata, make list of dictionaries
+length = len(data['resources']); print(length)  # how many items in resource list
+counter = 0  # count languoids with lat/long coordinates
+glotto = []  # empty list for languoid dictionaries
 for n in range(0, length):
     id = data['resources'][n]['id']
     lon = data['resources'][n]['longitude']
     lat = data['resources'][n]['latitude']
     name = data['resources'][n]['name']
-    if lon is not None:
-        url = 'http://glottolog.org/resource/languoid/id/' + id + '.json'
+    if lon is not None:  # only those resources for which there are lat/long coordinates
+        url = 'http://glottolog.org/resource/languoid/id/' + id + '.json'  # now fetch languoid specific data
         langresp = urllib2.urlopen(url)
         langdata = json.load(langresp)
-        status = 'Unknown'
+        type = langdata['level']  # 'language' or other?
+        status = 'Unknown'  # default endangerment level: find out if info exists
         if 'endangerment' in langdata['jsondata']:
             status = 'Living' if langdata['jsondata']['endangerment'] is None else langdata['jsondata']['endangerment']
+        class1 = 'Unknown'  # take the first language family classification, if any found
+        if len(langdata['classification']) > 0:
+            class1 = langdata['classification'][0]['name']
         counter += 1
         print "\n-----\ncount: ", counter
         print "languoid ID: ", id
         print "languoid name: ", name
+        print "languoid type: ", type
+        print "languoid family: ", class1
         print "latitude: ", lon
         print "longitude: ", lat
         print "status: ", status
-        languoid = {'name':name, 'id':id, 'lon':lon, 'lat':lat, 'status':status}
-        glotto.append(languoid)
+        languoid = {'name':name, 'id':id, 'level':type, 'family':class1, 'lon':lon, 'lat':lat, 'status':status}  # languoid dictionary
+        glotto.append(languoid)  # append dict to list
 
-print(counter)
-
-#except (ValueError, KeyError, TypeError):
-#    print "JSON format error"
+print(counter)  # how many languoids with lat/long coordinates?
