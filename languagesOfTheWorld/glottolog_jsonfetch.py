@@ -24,7 +24,7 @@ for n in range(0, length):
         status = 'Unknown'  # default endangerment level: find out if info exists
         if 'endangerment' in langdata['jsondata']:
             status = 'Living' if langdata['jsondata']['endangerment'] is None else langdata['jsondata']['endangerment']
-        class1 = 'Unknown'  # take the first language family classification, if any found
+        class1 = 'Missing'  # take the first language family classification, if any found
         if len(langdata['classification']) > 0:
             class1 = langdata['classification'][0]['name']
         counter += 1
