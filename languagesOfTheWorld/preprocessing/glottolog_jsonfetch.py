@@ -49,7 +49,7 @@ glottoData = zip(IDs, NAMEs, TYPEs, CLASSes, LONs, LATs, STATUSes)
 glottoDF = pd.DataFrame(data = glottoData, columns = ['id', 'name', 'level', 'family', 'lon', 'lat', 'status'])
 
 ## export to csv
-glottoDF.to_csv('glottolog_languoids-step1.csv', encoding='utf-8')
+glottoDF.to_csv('../data/glottolog_languoids-step1.csv', encoding='utf-8')
 
 
 ## check resources without lat/long coordinates:

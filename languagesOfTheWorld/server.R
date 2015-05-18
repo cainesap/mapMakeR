@@ -17,14 +17,14 @@ library(maptools)
 
 
 ## Fetch data from database pre-populated by the 'populate_db.R' script
-glottdb <- src_sqlite("glotto.sqlite3")  # db connection
+glottdb <- src_sqlite("data/glotto.sqlite3")  # db connection
 #glottbl <- tbl(glottdb, "glott")  # load 'glott' table from db
 glott_langs <- tbl(glottdb, "glott")  # load 'glott' table from db
 #glott_langs <- filter(glottbl) %>% select(id, name, level, family, lon, lat, status)
 
 
 ## Fetch worldmap and convert to df
-world <- readOGR("ne_50m_admin_0_countries.geojson", layer="OGRGeoJSON")
+world <- readOGR("data/ne_50m_admin_0_countries.geojson", layer="OGRGeoJSON")
 world <- world[!world$iso_a3 %in% c("ATA"),]
 world <- spTransform(world, CRS("+proj=wintri"))
 map_w <- ggplot2::fortify(world, region="iso_a3")

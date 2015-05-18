@@ -23,7 +23,7 @@ r_df$latlong <- paste(r_df$lat, ":", r_df$lon, sep="")
 r_df$tooltip <- paste(r_df$name, "<BR>", r_df$family, "<BR>", r_df$level, "<BR>", r_df$status, sep="")
 
 ## save to file
-write.csv(r_df, file = 'glottolog_languoids-step2.csv')
+write.csv(r_df, file = '../data/glottolog_languoids-step2.csv')
 
 
 ## PLOTS
