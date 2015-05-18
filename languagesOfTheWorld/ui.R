@@ -58,7 +58,7 @@ shinyUI(fluidPage(
       wellPanel(
         span("Number of languages selected:", textOutput("n_langs"),
         tags$small(paste0(
-          "There are a total of 7428 languages in this dataset."))
+          "There are a total of 7620 languages in this dataset."))
         )
       ),
 
@@ -70,11 +70,9 @@ shinyUI(fluidPage(
 
       wellPanel(
         span(
-  	  "inspiration: ", tags$a(href="http://fivethirtyeight.com/features/designing-the-best-board-game-on-the-planet/", "@ollie on FiveThirtyEight"),
+  	  "data source: ", tags$a(href="http://glottolog.org/", "Glottolog"),
 	  " | ",
-  	  "data source: ", tags$a(href="https://github.com/rasmusgreve/BoardGameGeek", "@rasmusgreve on GitHub"),
-	  " | ",
-  	  "code: ", tags$a(href="https://github.com/cainesap/boardgamegeek", "@cainesap on GitHub"),
+  	  "code: ", tags$a(href="https://github.com/cainesap/mapMakeR/tree/master/languagesOfTheWorld", "@cainesap on GitHub"),
 	  " | ",
 	  "original design: ", tags$a(href="http://shiny.rstudio.com/gallery/movie-explorer.html", "@garrettgman's Shiny Movie Explorer")
         )
