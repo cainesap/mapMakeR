@@ -64,9 +64,9 @@ shinyUI(fluidPage(
 
       ## PLOTS PANEL
       ggvisOutput("plot1"),
-      wellPanel(
-        textInput("langname", "Name contains (e.g. Arabic, Chinese, Swahili, Yoruba)")
-      ),
+#      wellPanel(
+#        textInput("langname", "Name contains (e.g. Arabic, Chinese, Swahili, Yoruba)")
+#      ),
 
       wellPanel(
         span(
