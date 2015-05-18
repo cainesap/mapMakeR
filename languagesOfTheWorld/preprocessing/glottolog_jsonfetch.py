@@ -2,7 +2,7 @@
 import json, urllib2
 import pandas as pd
 
-## list of resources
+## list of Glottolog language resources
 response = urllib2.urlopen('http://glottolog.org/resourcemap.json?rsc=language')
 data = json.load(response)
 
