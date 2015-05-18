@@ -24,7 +24,7 @@ glott_langs <- tbl(glottdb, "glott")  # load 'glott' table from db
 
 
 ## Fetch worldmap and convert to df
-world <- readOGR("/Users/apcaines/Downloads/ne_50m_admin_0_countries.geojson", layer="OGRGeoJSON")
+world <- readOGR("ne_50m_admin_0_countries.geojson", layer="OGRGeoJSON")
 world <- world[!world$iso_a3 %in% c("ATA"),]
 world <- spTransform(world, CRS("+proj=wintri"))
 map_w <- ggplot2::fortify(world, region="iso_a3")
