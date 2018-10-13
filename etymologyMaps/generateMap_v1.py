@@ -21,17 +21,17 @@
 
 import sys
 import csv
-from etymap_dicts import lang_col as basemap_lang_col, colorNames
+from etymap_dicts import basemap_lang_col, colorNames
 
 # If argument not given, load default
 try:
     filename = sys.argv[1]
 except:
-    filename = 'resources/dictionary_template.txt'
+    filename = 'resources/dictionary_example_water.txt'
 
 #load the .svg map:
-with open('resources/europe_template.svg', "r") as theMap:
-    with open(filename, "r", encoding = "utf8") as theDictionary:
+with open('resources/europe_template.svg', 'r') as theMap:
+    with open(filename, "r", encoding='utf8') as theDictionary:
         
         # Reading files
         theMapSource = theMap.read()
@@ -57,12 +57,11 @@ with open('resources/europe_template.svg', "r") as theMap:
             col = basemap_lang_col[lang]
             
             # Replace each tag in .svg ($eng etc) with the word/colour
-            theMapSource=theMapSource.replace('${}'.format(lang), word)
-            theMapSource=theMapSource.replace('#{}'.format(col),  color)
-        
+            theMapSource = theMapSource.replace('${}'.format(lang), word)
+            theMapSource = theMapSource.replace('#{}'.format(col), color)
         
         # Write output map
-        outputMap = filename.replace('dictionary','').replace('.txt','_map.svg')
+        outputMap = filename.replace('dictionary','').replace('resources/','').replace('.txt','_map.svg')
         
-        with open(outputMap, 'w', encoding="utf8") as theNewMap:
+        with open(outputMap, 'w', encoding='utf8') as theNewMap:
             theNewMap.write(theMapSource)
