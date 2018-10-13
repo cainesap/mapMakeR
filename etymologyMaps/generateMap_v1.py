@@ -41,33 +41,31 @@ with open('resources/europe_template.svg',"r") as theMap:
     with open(filename, "r", encoding="utf8") as theDictionary:
         reader = csv.reader(theDictionary)
         for line in reader:
-            languages.append( line[0] )
+            # Grabbing language, word, colour
+            lang = line[0]
             try:
-                words.append( line[1].replace('?',''))
+                word = line[1].replace('?','')
             except:
                 words.append( '' )
             try:
-                colors.append( line[2] )
+                color = line[2]
             except:
                 colors.append( 'grey' )
-        
-        # Convert English col names to hex
-        for i, col in enumerate(colors):
-            if col in colorNames:
-                colors[i] = colorNames[col]
-        
-        # Replace each tag in .svg ($eng etc) with the word/colour
-        for i,lang in enumerate(languages):
-            #print('Language: {} - word: {} - color: {}'.format(lang,words[i],colors[i]))
-            #replace the word:
-            theMapSource=theMapSource.replace('${}'.format(lang),words[i])
-            #replace the color:
+                
+            # Convert English col names to hex
+            if color in colorNames:
+                color = colorNames[color]
+            
+            # Original map colour to replace (all distinct)
             col = lang_col[lang]
-            theMapSource=theMapSource.replace('#{}'.format(col),colors[i])
+            
+            # Replace each tag in .svg ($eng etc) with the word/colour
+            theMapSource=theMapSource.replace('${}'.format(lang),word)
+            theMapSource=theMapSource.replace('#{}'.format(col),color)
         
         
         # Write output map
-        outputMap = filename.replace('dictionary','map').replace('.txt','.svg')
+        outputMap = filename.replace('dictionary','').replace('.txt','_map.svg')
         
         with open(outputMap, 'w', encoding="utf8") as theNewMap:
             theNewMap.write(theMapSource)
