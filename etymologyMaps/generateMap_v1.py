@@ -1,7 +1,5 @@
 #!/usr/bin/env python
-
 ###############################################################################
-
 # This script takes one argument: the name of a file organized in csv format:
 
 # ara, ?, grey
@@ -11,12 +9,9 @@
 # ...
 
 # which is a list of languages, list of words, and corresponding color.
-
 # It will look for the template map 'resources/europe_template.svg' 
 # and replace the names and colors with the csv's info.
-
 # The colors can be given as hexadecimal (#ff00cc) or common English colour names.
-
 ###############################################################################
 
 import sys
@@ -27,7 +22,7 @@ from etymap_dicts import basemap_lang_col, colorNames
 try:
     filename = sys.argv[1]
 except:
-    filename = 'resources/dictionary_example_water.txt'
+    filename = 'examples/water/dictionary_water.txt'
 
 #load the .svg map:
 with open('resources/europe_template.svg', 'r') as theMap:
@@ -61,7 +56,8 @@ with open('resources/europe_template.svg', 'r') as theMap:
             theMapSource = theMapSource.replace('#{}'.format(col), color)
         
         # Write output map
-        outputMap = filename.replace('dictionary','').replace('resources/','').replace('.txt','_map.svg')
+        outputMap = filename.split('/')[-1]
+        outputMap = outputMap.replace('dictionary','map').replace('.txt','.svg')
         
         with open(outputMap, 'w', encoding='utf8') as theNewMap:
             theNewMap.write(theMapSource)
