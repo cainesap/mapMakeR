@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Oct 13 13:35:22 2018
-
-@author: jacob
-"""
 
 # Dictionary of English colour names > hex codes
 colorNames = {'turquoise':'#8dd3c7',
