@@ -16,7 +16,7 @@
 
 import sys
 import csv
-from etymap_dicts import basemap_lang_col, colorNames
+from etymapDicts import basemap_lang_col, colorNames
 
 # If argument not given, load default
 try:
