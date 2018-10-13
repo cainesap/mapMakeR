@@ -21,20 +21,22 @@
 
 import sys
 import csv
-from etymap_dicts import lang_col, colorNames
+from etymap_dicts import lang_col as basemap_lang_col, colorNames
 
+# If argument not given, load default
 try:
     filename = sys.argv[1]
 except:
     filename = 'resources/dictionary_template.txt'
 
 #load the .svg map:
-with open('resources/europe_template.svg',"r") as theMap:
-    
-    theMapSource = theMap.read()
-    
-    with open(filename, "r", encoding="utf8") as theDictionary:
+with open('resources/europe_template.svg', "r") as theMap:
+    with open(filename, "r", encoding = "utf8") as theDictionary:
+        
+        # Reading files
+        theMapSource = theMap.read()
         reader = csv.reader(theDictionary)
+        
         for line in reader:
             # Grabbing language, word, colour
             lang = line[0]
@@ -52,11 +54,11 @@ with open('resources/europe_template.svg',"r") as theMap:
                 color = colorNames[color]
             
             # Original map colour to replace (all distinct)
-            col = lang_col[lang]
+            col = basemap_lang_col[lang]
             
             # Replace each tag in .svg ($eng etc) with the word/colour
-            theMapSource=theMapSource.replace('${}'.format(lang),word)
-            theMapSource=theMapSource.replace('#{}'.format(col),color)
+            theMapSource=theMapSource.replace('${}'.format(lang), word)
+            theMapSource=theMapSource.replace('#{}'.format(col),  color)
         
         
         # Write output map
