@@ -33,11 +33,6 @@ with open('resources/europe_template.svg',"r") as theMap:
     
     theMapSource = theMap.read()
     
-    #read the dictionary:
-    languages = []
-    words     = []
-    colors    = []
-    
     with open(filename, "r", encoding="utf8") as theDictionary:
         reader = csv.reader(theDictionary)
         for line in reader:
@@ -46,11 +41,11 @@ with open('resources/europe_template.svg',"r") as theMap:
             try:
                 word = line[1].replace('?','')
             except:
-                words.append( '' )
+                word = ''
             try:
                 color = line[2]
             except:
-                colors.append( 'grey' )
+                color = 'grey'
                 
             # Convert English col names to hex
             if color in colorNames:
