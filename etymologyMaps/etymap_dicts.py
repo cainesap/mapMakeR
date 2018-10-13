@@ -19,7 +19,7 @@ colorNames = {'turquoise':'#8dd3c7',
               'darkgrey':'#999999'}
 
 #this is the list of languages and corresponding original colors in the template:
-lang_col = {
+basemap_lang_col = {
     'abk': '168d4f',
     'ara': 'ffffb1',
     'aze': 'd45500',
