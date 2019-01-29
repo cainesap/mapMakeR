@@ -41,7 +41,7 @@ langs$newtooltip <- paste0(langs$tooltip, "<br />speakers:", ifelse(is.na(langs$
 extinct <- subset(langs, grepl("extinct", langs$status))
 endangered <- subset(langs, grepl("endangered", langs$status))
 vulnerable <- subset(langs, grepl("vulnerable", langs$status))
-living <- subset(langs, grepl("safe", langs$status))
+safe <- subset(langs, grepl("safe", langs$status))
 
 
 ## SHINY APP
@@ -126,7 +126,7 @@ server <- function(input, output, session) {
 	  clearMarkers() %>%
       addLegend("topright", pal = colorFactor(brew, langs$status), values = langs$status, opacity = 0.8, title = "Endangerment status<br/>(source: <a href=\"http://glottolog.org\" target=\"_blank\">Glottolog</a>/UNESCO)") %>%
       addLayersControl(
-        overlayGroups = c("extinct", "endangered", "vulnerable", "living"),
+        overlayGroups = c("extinct", "endangered", "vulnerable", "safe"),
 	options = layersControlOptions(collapsed = FALSE)
       )
   })
@@ -148,7 +148,7 @@ server <- function(input, output, session) {
 	  leafletProxy("glottomap") %>%
 	    clearMarkers() %>%
 #	    addCircleMarkers(data = unknown, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.5, fillOpacity = 0.4, radius = ~log(speakers)+popCircleRadius, popup = ~newtooltip, group = "unknown") %>%
-        addCircleMarkers(data = living, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.4, fillOpacity = 0.3, radius = ~log(speakers)+popCircleRadius, popup = ~newtooltip, group = "living") %>%
+        addCircleMarkers(data=safe, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.4, fillOpacity = 0.3, radius = ~log(speakers)+popCircleRadius, popup = ~newtooltip, group = "safe") %>%
         addCircleMarkers(data = vulnerable, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.5, fillOpacity = 0.4, radius = ~log(speakers)+popCircleRadius, popup = ~newtooltip, group = "vulnerable") %>%
         addCircleMarkers(data = endangered, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.5, fillOpacity = 0.4, radius = ~log(speakers)+popCircleRadius, popup = ~newtooltip, group = "endangered") %>%
         addCircleMarkers(data = extinct, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.5, fillOpacity = 0.4, radius = ~log(speakers)+popCircleRadius, popup = ~newtooltip, group = "extinct")
@@ -156,7 +156,7 @@ server <- function(input, output, session) {
 	  leafletProxy("glottomap") %>%
 	    clearMarkers() %>%
 #	    addCircleMarkers(data = unknown, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.5, fillOpacity = 0.4, radius = circleRadius, popup = ~newtooltip, group = "unknown") %>%
-        addCircleMarkers(data = living, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.4, fillOpacity = 0.3, radius = circleRadius, popup = ~newtooltip, group = "living") %>%
+        addCircleMarkers(data=safe, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.4, fillOpacity = 0.3, radius = circleRadius, popup = ~newtooltip, group = "safe") %>%
         addCircleMarkers(data = vulnerable, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.5, fillOpacity = 0.4, radius = circleRadius, popup = ~newtooltip, group = "vulnerable") %>%
         addCircleMarkers(data = endangered, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.5, fillOpacity = 0.4, radius = circleRadius, popup = ~newtooltip, group = "endangered") %>%
         addCircleMarkers(data = extinct, color = ~langCols(status), stroke = TRUE, weight = strokeWeight, opacity = 0.5, fillOpacity = 0.4, radius = circleRadius, popup = ~newtooltip, group = "extinct")
