@@ -1,66 +1,66 @@
-abk	?	grey
-ara	m'a	red
-aze	su	orange
-bel	vady	blue
-bos	voda	blue
-bre     ?       grey
-bul	vodi	blue
-cat	aigua	yellow
-cau	?	grey
-ces	voda	blue
-cor     ?       grey
-cym	dŵr	red
-dan	vand	green
-deu	wasser	green
-ell	neró	red
-eng	water	green
-est	vesi	red
-eus	ura	red
-fao	?	grey
-fin	vesi	red
-fra	eau	yellow
-fry	wetter	green
-gag	?	grey
-gla	ushtey	red
-gle	uisce	red
-glg	auga	yellow
-hrv	voda	blue
-hun	víz	red
-hye	jur	red
-isl	vatn	green
-ita	aqua	yellow
-kat	tsqali	red
-kaz	?	grey
-krl	?	grey
-lav	ūdens	red
-lig     ?       grey
-lit	vanduo	red
-ltz	waasser	green
-mkd	voda	blue
-mlt	ilma	red
-nap     ?       grey
-nld	water	green
-nor	vann	green
-occ	aiga	yellow
-oss     ?       grey
-pms	?	grey
-pol	woda	blue
-por	água	yellow
-roh	?	grey
-ron	apă	yellow
-rus	voda	blue
-sar	?	grey
-sco	?	grey
-sic	?	grey
-slk	voda	blue
-slv	voda	blue
-sme	čáhci	red
-spa	agua	yellow
-sqi	ujë	red
-srp	voda	blue
-swe	vatten	green
-tat	?	grey
-tur	su	orange
-ukr	voda  blue
-ven	?	grey
-xal	?	grey
+abk,?,grey
+ara,?,grey
+aze,?,grey
+bel,?,grey
+bos,?,grey
+bre,?,grey
+bul,?,grey
+cat,?,grey
+cau,?,grey
+ces,?,grey
+cor,?,grey
+cym,?,grey
+dan,?,grey
+deu,?,grey
+ell,?,grey
+eng,?,grey
+est,?,grey
+eus,?,grey
+fao,?,grey
+fin,?,grey
+fra,?,grey
+fry,?,grey
+gag,?,grey
+gla,?,grey
+gle,?,grey
+glg,?,grey
+hrv,?,grey
+hun,?,grey
+hye,?,grey
+isl,?,grey
+ita,?,grey
+kat,?,grey
+kaz,?,grey
+krl,?,grey
+lav,?,grey
+lig,?,grey
+lit,?,grey
+ltz,?,grey
+mkd,?,grey
+mlt,?,grey
+nap,?,grey
+nld,?,grey
+nor,?,grey
+occ,?,grey
+oss,?,grey
+pms,?,grey
+pol,?,grey
+por,?,grey
+roh,?,grey
+ron,?,grey
+rus,?,grey
+sar,?,grey
+sco,?,grey
+sic,?,grey
+slk,?,grey
+slv,?,grey
+sme,?,grey
+spa,?,grey
+sqi,?,grey
+srp,?,grey
+swe,?,grey
+tat,?,grey
+tur,?,grey
+ukr,?,grey
+ven,?,grey
+xal,?,grey
