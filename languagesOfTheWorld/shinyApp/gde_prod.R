@@ -8,7 +8,7 @@
 
 
 ## PRELIMS
-require(shiny); require(leaflet); require(RColorBrewer); require(DT)
+require(shiny); require(leaflet); require(RColorBrewer); require(DT); require(markdown)
 
 ## load Glottolog data
 langs <- read.csv('data/glottologLanguoids.csv')
@@ -118,9 +118,11 @@ server <- function(input, output, session) {
       #addTiles() %>%
       #addProviderTiles("NASAGIBS.ViirsEarthAtNight2012") %>%
       #addProviderTiles("Esri.NatGeoWorldMap") %>%
-      addProviderTiles("Stamen.Watercolor") %>%
-      addProviderTiles("Stamen.TonerLabels") %>%
-      addProviderTiles("Stamen.TonerLines") %>%
+      #addProviderTiles("Stamen.Watercolor") %>%  # August 2025: Stamen requires Stadia API authentication
+      #addProviderTiles("OpenStreetMap.Mapnik") %>%
+      addProviderTiles(providers$Stadia.StamenWatercolor) %>%  # see https://rstudio.github.io/leaflet/articles/basemaps.html#third-party-tiles
+      addProviderTiles(providers$Stadia.StamenTonerLabels) %>%
+      addProviderTiles(providers$Stadia.StamenTonerLines) %>%
       # n.b. implicit lat/long coordinates
       addCircleMarkers(data = langs, color = ~langCols(status), stroke = TRUE, weight = 3, opacity = 0.8, fillOpacity = 0.5, radius = 7, group = "other") %>%
 	  clearMarkers() %>%
